@@ -17,7 +17,6 @@ class Circle:
 
     def __init__(self, radius):
         """Initialize a circle with given radius.
-        
         :param radius: radius of the circle, may be zero.
         :raises ValueError: if radius is negative.
         """
@@ -42,11 +41,11 @@ class Circle:
 
     def get_area(self) -> float:
         return math.pi*self.radius*self.radius
-    
+
     def get_radius(self) -> float:
         return self.radius
 
     def __str__(self) -> str:
         return f"Circle({self.radius})"
-    
+
     __repr__ = __str__
