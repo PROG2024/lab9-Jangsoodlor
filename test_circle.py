@@ -8,5 +8,21 @@ Write unit tests as described in README.md.
 
 """
 from circle import Circle
+import unittest
 
-# TODO write 3 tests as described above
+class TestCircle(unittest.TestCase):
+    def setUp(self) -> None:
+        self.circle = Circle(5)
+
+    def test_add_area(self):
+        c2 = Circle(10)
+        c3 = self.circle.add_area(c2)
+        radius_sq = lambda x : x.get_radius() * x.get_radius()
+        self.assertAlmostEqual(radius_sq(c3), radius_sq(self.circle) + radius_sq(c2))
+        self.assertAlmostEqual(self.circle.get_area() + c2.get_area(), c3.get_area())
+
+    def test_add_area_zero_radius(self):
+        c2 = Circle(0)
+        c3 = self.circle.add_area(c2)
+        self.assertEqual(c3.get_radius(), self.circle.get_radius())
+        self.assertEqual(c3.get_area(), self.circle.get_area())
