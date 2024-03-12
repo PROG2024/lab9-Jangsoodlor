@@ -3,6 +3,15 @@ import math
 
 
 class Circle:
+    """Circle
+    >>> c3 = Circle(3)
+    >>> c4 = Circle(4)
+    >>> c5 = c3.add_area(c4)
+    >>> c5.get_radius()
+    5.0
+    >>> illegal_c = Circle(-1)
+    
+    """
 
     def __init__(self, radius):
         """Initialize a circle with given radius.
