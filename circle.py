@@ -9,8 +9,8 @@ class Circle:
     >>> c5 = c3.add_area(c4)
     >>> c5.get_radius()
     5.0
-    >>> illegal_c = Circle(-1)
-    
+    >>> Circle(-1)
+    ...
     """
 
     def __init__(self, radius):
