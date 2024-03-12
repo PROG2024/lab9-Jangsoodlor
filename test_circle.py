@@ -15,6 +15,7 @@ class TestCircle(unittest.TestCase):
         self.circle = Circle(5)
 
     def test_add_area(self):
+        """Test whether adding 2 circles' area work correctly"""
         c2 = Circle(10)
         c3 = self.circle.add_area(c2)
         radius_sq = lambda x : x.get_radius() * x.get_radius()
@@ -22,7 +23,13 @@ class TestCircle(unittest.TestCase):
         self.assertAlmostEqual(self.circle.get_area() + c2.get_area(), c3.get_area())
 
     def test_add_area_zero_radius(self):
+        """Test whether adding circle with zero radius works correctly"""
         c2 = Circle(0)
         c3 = self.circle.add_area(c2)
         self.assertEqual(c3.get_radius(), self.circle.get_radius())
         self.assertEqual(c3.get_area(), self.circle.get_area())
+
+    def test_raise_exception_negative_radius(self):
+        """Test whether the code raise exception if negative radius is inputted"""
+        with self.assertRaises(Exception):
+            c = Circle(-1)
