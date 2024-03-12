@@ -3,14 +3,16 @@ import math
 
 
 class Circle:
-    """Circle
+    """Circle class to imitate real-life circle
     >>> c3 = Circle(3)
     >>> c4 = Circle(4)
     >>> c5 = c3.add_area(c4)
     >>> c5.get_radius()
     5.0
     >>> Circle(-1)
-    ...
+    Traceback (most recent call last):
+        ...
+    ValueError: radius must be non-negative
     """
 
     def __init__(self, radius):
