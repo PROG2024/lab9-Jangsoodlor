@@ -10,13 +10,29 @@
 """
 
 class Counter:
+    """Singleton Counter class"""
+    __instance = None
 
     def __init__(self):
-        self.__count = 0
-
+        if not self.__initialized:
+            self.__initialized = True
+            self.__count = 0
 
     def __str__(self):
         return f"{self.__count}"
 
-    #TODO write count property
-    #TODO write increment method
+    def __new__(cls, *args, **kwargs):
+        if not cls.__instance:
+            cls.__instance = super().__new__(cls, *args, **kwargs)
+            cls.__instance.__initialized = False
+        return cls.__instance
+
+    @property
+    def count(self):
+        """returns the current count"""
+        return self.__count
+
+    def increment(self):
+        """add 1 to current count and also return the new value"""
+        self.__count += 1
+        return self.count
